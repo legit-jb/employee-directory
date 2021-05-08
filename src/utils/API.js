@@ -1,7 +1,9 @@
 import axios from "axios";
 
-genPeople = () => {
-    return axios.get("https://randomuser.me/api/?results=50");
-}
+const BASEURL = "https://randomuser.me/api/?results=50";
 
-export default API;
+export default {
+  search: function () {
+    return axios.get(BASEURL);
+  },
+};
