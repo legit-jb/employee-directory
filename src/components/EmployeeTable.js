@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
+import "./style.css";
 
 const EmployeeTable = () => {
   const [employees, setEmployees] = useState([]);
   const [sortField, setSortField] = useState(null);
-  const [ascending, setAscending] = useState(true);
 
   useEffect(() => {
     API.search()
@@ -42,42 +42,60 @@ const EmployeeTable = () => {
 
   return (
     <table>
-      <caption>Employee Direct</caption>
       <thead>
         <tr>
-          <th>
-            <span role="button" onClick={() => setSortField("key")}>
-              id
-            </span>
+          <th
+            scope="col"
+            role="button"
+            className="bttn"
+            onClick={() => setSortField("key")}
+          >
+            id
           </th>
-          <th>image</th>
-          <th>
-            <span role="button" onClick={() => setSortField("firstName")}>
-              First
-            </span>
+          <th scope="col">image</th>
+          <th
+            scope="col"
+            role="button"
+            className="bttn"
+            onClick={() => setSortField("firstName")}
+          >
+            First
           </th>
-          <th>
-            <span role="button" onClick={() => setSortField("lastName")}>
-              Last
-            </span>
+          <th
+            scope="col"
+            role="button"
+            className="bttn"
+            onClick={() => setSortField("lastName")}
+          >
+            Last
           </th>
-          <th>
-            <span role="button" onClick={() => setSortField("email")}>
-              email
-            </span>
+          <th
+            scope="col"
+            role="button"
+            className="bttn"
+            onClick={() => setSortField("email")}
+          >
+            email
           </th>
-          <th>
-            <span role="button" onClick={() => setSortField("phone")}>
-              phone
-            </span>
+          <th
+            role="button"
+            className="bttn"
+            onClick={() => setSortField("phone")}
+          >
+            phone
           </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="table">
         {employees.map((entry) => (
-          <tr>
+          <tr key={entry.key}>
             <td>{entry.key}</td>
-            <td> <img alt={entry.lastName + ", " + entry.firstName} src={entry.image} /></td>
+            <td>
+              <img
+                alt={entry.firstName + " " + entry.lastName}
+                src={entry.image}
+              />
+            </td>
             <td>{entry.firstName}</td>
             <td>{entry.lastName}</td>
             <td>{entry.email}</td>
