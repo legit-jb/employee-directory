@@ -1,0 +1,26 @@
+.modal {
+  max-width: 500px;
+  background-color: white;
+  position: fixed;
+  top: 75px;
+  z-index: 5;
+  max-height: calc(100% - 200px);
+  left: calc(50% - 250px);
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 500px) {
+    left: 0px;
+    margin: 0px 10px;
+  }
+}
+
+.modal-content {
+  overflow: auto;
+  min-height: 200px;
+  padding: 0px 40px;
+  padding-bottom: 80px;
+}
+
+.visible {
+  visibility: visible;
+}

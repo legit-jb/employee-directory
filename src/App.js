@@ -1,17 +1,12 @@
-import { BrowserRouter, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Employee from "./components/Employee";
-import Directory from "./components/Directory";
+import React from "react";
+import EmployeeTable from "./components/EmployeeTable";
 
 function App() {
+
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Directory />
-        <Route path="/employee/:name" component={Employee} />
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <EmployeeTable />
+    </div>
   );
   // end return
 }
